@@ -4,20 +4,7 @@ import { FaTiktok, FaEye, FaFacebook } from "react-icons/fa";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { TiMessageTyping } from "react-icons/ti";
 import Link from "next/link";
-
-interface propsType {
-  img: string;
-  title: string;
-  desc: string;
-  rating: number;
-  price: string;
-  linkAdmin: String;
-  linkFacebook: String;
-  linkTiktok: String;
-  linkDetail: String;
-  hargaCoret: String;
-}
-
+import { propsType } from "@/types/interface";
 const ProductCard: React.FC<propsType> = ({
   img,
   title,
