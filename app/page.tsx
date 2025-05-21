@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <main className="mx-8">
+    <main>
       <Navbar />
       <Hero />
       {/* <LokasiBaru />
