@@ -9,9 +9,9 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      {/* <LokasiBaru />
+      <LokasiBaru />
       <UnitTerlaris />
-      <Testimoni /> */}
+      <Testimoni />
     </main>
   );
 }

@@ -17,7 +17,6 @@
 //   fullWidth?: boolean;
 // }
 
-
 // export default function Navbar() {
 //   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -177,7 +176,7 @@
 //   </svg>
 // );
 
-'use client'
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -203,7 +202,10 @@ export default function Navbar() {
     <nav className="fixed w-full top-0 z-50 bg-white/40 border-b  border-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-gray-900 transition-colors">
+          <Link
+            href="/"
+            className="text-2xl font-bold text-gray-800 hover:text-gray-900 transition-colors"
+          >
             Logo
           </Link>
 
@@ -221,7 +223,11 @@ export default function Navbar() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                d={
+                  isMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
@@ -232,7 +238,7 @@ export default function Navbar() {
             <NavLink href="/kost">Kost</NavLink>
             <NavLink href="/tentang">Tentang</NavLink>
             <NavLink href="/kontak">Kontak</NavLink>
-            <NavLink href="/freelance">Freelance</NavLink>
+            <NavLink href="/freelance">Referal</NavLink>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -241,7 +247,11 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className={`md:hidden fixed inset-0 z-50 transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
+        <div
+          className={`md:hidden fixed inset-0 z-50 transform ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out`}
+        >
           <div className="fixed left-0 top-0 h-full w-64 bg-white/95 backdrop-blur-sm shadow-xl">
             <div className="flex flex-col h-full overflow-y-auto">
               <div className="px-4 py-4 border-b border-gray-200">
@@ -249,25 +259,40 @@ export default function Navbar() {
                   Logo
                 </Link>
               </div>
-              
+
               <nav className="flex-1 px-4 py-6 space-y-2">
                 <MobileNavLink href="/" onClick={() => setIsMenuOpen(false)}>
                   Home
                 </MobileNavLink>
-                <MobileNavLink href="/rumah" onClick={() => setIsMenuOpen(false)}>
+                <MobileNavLink
+                  href="/rumah"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Rumah
                 </MobileNavLink>
-                <MobileNavLink href="/kost" onClick={() => setIsMenuOpen(false)}>
+                <MobileNavLink
+                  href="/kost"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Kost
                 </MobileNavLink>
-                <MobileNavLink href="/tentang" onClick={() => setIsMenuOpen(false)}>
+                <MobileNavLink
+                  href="/tentang"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Tentang
                 </MobileNavLink>
-                <MobileNavLink href="/kontak" onClick={() => setIsMenuOpen(false)}>
+                <MobileNavLink
+                  href="/kontak"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Kontak
                 </MobileNavLink>
-                <MobileNavLink href="/freelance" onClick={() => setIsMenuOpen(false)}>
-                  Freelance
+                <MobileNavLink
+                  href="/freelance"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Referal
                 </MobileNavLink>
               </nav>
 
@@ -277,7 +302,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          
+
           {isMenuOpen && (
             <div
               className="fixed inset-0 bg-black/50 z-[-1]"
@@ -299,7 +324,11 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
   </Link>
 );
 
-const MobileNavLink: React.FC<MobileNavLinkProps> = ({ href, children, onClick }) => (
+const MobileNavLink: React.FC<MobileNavLinkProps> = ({
+  href,
+  children,
+  onClick,
+}) => (
   <Link
     href={href}
     onClick={onClick}
@@ -313,7 +342,7 @@ const LoginButton: React.FC<ButtonProps> = ({ fullWidth }) => (
   <Link
     href="/login"
     className={`flex items-center justify-center ${
-      fullWidth ? 'w-full' : 'px-4'
+      fullWidth ? "w-full" : "px-4"
     } py-2.5 space-x-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors`}
   >
     <UserIcon />
@@ -325,7 +354,7 @@ const RegisterButton: React.FC<ButtonProps> = ({ fullWidth }) => (
   <Link
     href="/register"
     className={`flex items-center justify-center ${
-      fullWidth ? 'w-full' : 'px-4'
+      fullWidth ? "w-full" : "px-4"
     } py-2.5 space-x-2 bg-[#00c194] rounded-lg hover:bg-[#00a37d] transition-colors`}
   >
     <AddUserIcon />
