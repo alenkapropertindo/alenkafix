@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 export default function Testimoni() {
   return (
-     <div>
+    <div>
       <div className="container py-10">
         <div className="border  border-gray-300 rounded-2xl grid place-items-center p-6 lg:p-0">
           <div className="text-center flex flex-col items-center gap-1">
@@ -31,6 +31,4 @@ export default function Testimoni() {
       </div>
     </div>
   );
-  
 }
-

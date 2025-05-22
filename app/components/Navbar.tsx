@@ -200,12 +200,12 @@ export default function Navbar() {
 
   return (
     // <nav className="fixed w-full top-0 z-50 bg-white/1 backdrop-blur-xs border-b border-white">
-    <nav className="fixed w-full top-0 z-50 bg-white/30 border-b  border-white">
+    <nav className="fixed w-full top-0 z-50 bg-white/70 border-b shadow-2xl  border-[#00a37d]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-2xl font-bold text-gray-800 hover:text-gray-900 transition-colors"
+            className="text-2xl font-bold text-slate-900 hover:text-gray-900 transition-colors"
           >
             <Image
               height={50}
@@ -333,7 +333,7 @@ export default function Navbar() {
 const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
   <Link
     href={href}
-    className="text-gray-600 hover:text-gray-900 hover:bg-white px-3 py-2 rounded-md transition-colors font-medium"
+    className="text-gray-600 hover:text-white  hover:bg-[#00a37d] px-3 py-2 rounded-md transition-colors font-medium"
   >
     {children}
   </Link>
