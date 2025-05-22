@@ -180,6 +180,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface NavLinkProps {
   href: string;
@@ -199,14 +200,21 @@ export default function Navbar() {
 
   return (
     // <nav className="fixed w-full top-0 z-50 bg-white/1 backdrop-blur-xs border-b border-white">
-    <nav className="fixed w-full top-0 z-50 bg-white/40 border-b  border-white">
+    <nav className="fixed w-full top-0 z-50 bg-white/30 border-b  border-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
             className="text-2xl font-bold text-gray-800 hover:text-gray-900 transition-colors"
           >
-            Logo
+            <Image
+              height={50}
+              priority={true}
+              width={50}
+              alt="logo"
+              src="/logo.jpg"
+              className=" rounded-full"
+            />
           </Link>
 
           <button
@@ -238,7 +246,7 @@ export default function Navbar() {
             <NavLink href="/kost">Kost</NavLink>
             <NavLink href="/tentang">Tentang</NavLink>
             <NavLink href="/kontak">Kontak</NavLink>
-            <NavLink href="/freelance">Referal</NavLink>
+            <NavLink href="/referal">Referal</NavLink>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -256,7 +264,14 @@ export default function Navbar() {
             <div className="flex flex-col h-full overflow-y-auto">
               <div className="px-4 py-4 border-b border-gray-200">
                 <Link href="/" className="text-xl font-bold text-gray-800">
-                  Logo
+                  <Image
+                    height={50}
+                    priority={true}
+                    width={50}
+                    alt="logo"
+                    src="/logo.jpg"
+                    className=" rounded-full"
+                  />
                 </Link>
               </div>
 
@@ -318,7 +333,7 @@ export default function Navbar() {
 const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
   <Link
     href={href}
-    className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md transition-colors font-medium"
+    className="text-gray-600 hover:text-gray-900 hover:bg-white px-3 py-2 rounded-md transition-colors font-medium"
   >
     {children}
   </Link>
