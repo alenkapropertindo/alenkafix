@@ -20,16 +20,22 @@ enum AccountRole {
   ADMIN
   
 }
+enum Type {
+  SUBSIDI
+  KOMERSIL
+  KOST
+  SEWA
+}
 
 model Account {
   id                 String  @id @default(cuid())
-   nama          String
+  name          String
   email         String   @unique
   whatsup       String   @unique
   payout        Int @default(0)
   password      String?
   role          AccountRole @default(WAITING)
-  customerList      Customer[]
+  customers      Customer[]
   type               String @default("email")
   provider           String @default("gmail")
   providerAccountId  String 
@@ -46,27 +52,34 @@ model Account {
 
 model Customer {
   id          String @id @default(uuid())
-  freelanceId      String
-  nama        String
+  accountId      String
+  name        String
   whatsup     String @unique
   email       String
   status      Status @default(FOLLOWUP)
-  produk      Produk[]
+  // produk      Produk[]
   createdAt   DateTime @default(now())
-  acount Account? @relation(fields: [freelanceId], references: [id], onDelete: Cascade)
-  @@index([freelanceId])
+  acount Account? @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  @@index([accountId])
   
+  products      Product[]  @relation("CustomerToProduct")
 }
-model Produk {
+
+
+model Product {
   id          String @id @default(uuid())
-  customerId      String?
-  namaProduk        String @unique
-  harga     Decimal 
-  fee     Int? 
+  type  Type @default(SUBSIDI)
+  name        String @unique
+  rating Decimal
+  address        String 
+  price     Decimal 
+  discountFrom     Decimal 
+  fee     Decimal 
+  image String
+  fb     String 
+  tiktok String
   createdAt   DateTime @default(now())
-  customer Customer? @relation(fields: [customerId], references: [id])
-  @@index([customerId])
-  
+   customers   Customer[] @relation("CustomerToProduct")
 }
 
 
