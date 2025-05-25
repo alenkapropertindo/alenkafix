@@ -26,6 +26,13 @@ enum Type {
   KOST
   SEWA
 }
+enum Status_ {
+  OPEN
+  TERLARIS
+  TERBARU
+  FAVORIT
+  FLASHSALE
+}
 
 model Account {
   id                 String  @id @default(cuid())
@@ -69,6 +76,8 @@ model Customer {
 model Product {
   id          String @id @default(uuid())
   type  Type @default(SUBSIDI)
+  status  Status_ @default(OPEN)
+  district        String  @default("Poasia")
   name        String @unique
   rating Decimal
   address        String 

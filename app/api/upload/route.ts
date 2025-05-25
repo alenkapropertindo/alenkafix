@@ -1,7 +1,7 @@
-
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Type } from "@prisma/client";
 import { put } from "@vercel/blob";
+import { z } from "zod";
 
 const prisma = new PrismaClient();
 export const config = {
@@ -10,27 +10,52 @@ export const config = {
   },
 };
 
-export async function POST(request: Request): Promise<NextResponse> {
-  const formData = await request.formData()
-  // console.log(body)
-  const file = formData.get('file') as File;
-  const { url } = await put(file.name, file, { access: 'public' ,allowOverwrite:true});
+const ProductSchema = z.object({
+  name: z.string(),
+  address: z.string(),
+  type: z.nativeEnum(Type),
+  district: z.string(),
+  rating: z.coerce.number(),
+  price: z.coerce.number(),
+  fee: z.coerce.number(),
+  discountFrom: z.coerce.number(),
+  fb: z.string(),
+  tiktok: z.string(),
+  image: z.string(),
+});
 
-    const result = await prisma.product.create({
-      data: {
-        // ...payload,
-        name: formData.get('names') as string,
-        address: formData.get('address') as string,
-        rating: parseFloat(formData.get('rating') as string),
-        price: parseFloat(formData.get('price') as string),
-        fee: parseFloat(formData.get('fee') as string),
-        discountFrom: parseFloat(formData.get('discountFrom') as string),
-        fb: formData.get('fb') as string,
-        tiktok: formData.get('tiktok') as string,
-        // ...payload,
-        image: url
-      }
+export async function POST(request: Request) {
+  const formData = await request.formData();
+  
+  const file = formData.get("file") as File | null;
+
+  if (!file) {
+    return NextResponse.json({ success: false, message: "File tidak ditemukan" });
+  }
+
+  try {
+    const { url } = await put(file.name, file, {
+      access: "public",
+      allowOverwrite: true,
     });
+    const parsed = ProductSchema.parse({ 
+  ...Object.fromEntries(formData.entries()), 
+  image: url,
+  status: "OPEN",
+});
+// console.log(formData.get("district"))
+// console.log(parsed)
 
-    return NextResponse.json(result);
+    await prisma.product.create({ data: parsed });
+
+    return NextResponse.json({ success: true, message: "Berhasil" });
+  } catch (err) {
+    const message =
+      err instanceof z.ZodError
+        ? err.errors.map((e) => `${e.path.join(".")}: ${e.message}`).join("; ")
+        : err instanceof Error
+        ? err.message
+        : "Terjadi kesalahan";
+    return NextResponse.json({ success: false, message });
+  }
 }

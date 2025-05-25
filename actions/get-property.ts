@@ -1,6 +1,6 @@
 export const productsData = [
   {
-    img: "/Images/GRIYA CITRA BARUGA.jpg",
+    image: "/Images/GRIYA CITRA BARUGA.jpg",
     title: "Griya Citra Baruga",
     desc: "Jl.KS Tubun, Baruga",
     rating: 4,
@@ -13,7 +13,7 @@ export const productsData = [
     linkDetail: "/GriyaCitraBaruga",
   },
   {
-    img: "/Images/BUMI ANAWAI LAND.jpg",
+    image: "/Images/BUMI ANAWAI LAND.jpg",
     title: "Bumi Anawai Land",
     desc: "Jl.Anawai, Kel. Wua-Wua",
     rating: 4,
@@ -26,7 +26,7 @@ export const productsData = [
     linkDetail: "/BumiAnawaiLand",
   },
   {
-    img: "/Images/GRIYA CITRA ANAWAI.jpg",
+    image: "/Images/GRIYA CITRA ANAWAI.jpg",
     title: "Griya Citra Anawai",
     desc: "Jl.Anawai, Kel. Wua-Wua",
     rating: 4,
@@ -39,7 +39,7 @@ export const productsData = [
     linkDetail: "/GriyaCitraAnawai",
   },
   {
-    img: "/Images/GRIYA CITRA WATUBANGGA.jpg",
+    image: "/Images/GRIYA CITRA WATUBANGGA.jpg",
     title: "Griya Citra Watubangga",
     desc: "Jl.Kapten Piere Tendean, Baruga",
     rating: 4,
@@ -52,7 +52,7 @@ export const productsData = [
     linkDetail: "/GriyaCitraWatubangga",
   },
   {
-    img: "/Images/GRIYA IB HASANAH.jpg",
+    image: "/Images/GRIYA IB HASANAH.jpg",
     title: "Griya IB Hasanah",
     desc: "Jl.Chairil Anwar, THR-Puwatu",
     rating: 4,
@@ -65,7 +65,7 @@ export const productsData = [
     linkDetail: "/GriyaIbHasanah",
   },
   {
-    img: "/Images/MUTIARA ATHIRA BARUGA 2.jpg",
+    image: "/Images/MUTIARA ATHIRA BARUGA 2.jpg",
     title: "Mutiara Athirah Baruga 2",
     desc: "Jl.KS Tubun, Baruga",
     rating: 4,
@@ -78,7 +78,7 @@ export const productsData = [
     linkDetail: "/MutiaraAthiraBaruga2",
   },
   {
-    img: "/Images/MUTIARA ATHIRA BARUGA 3.jpg",
+    image: "/Images/MUTIARA ATHIRA BARUGA 3.jpg",
     title: "Mutiara Athirah Baruga 3",
     desc: "Jl.Kapten Piere Tendean, Baruga",
     rating: 4,
@@ -92,7 +92,7 @@ export const productsData = [
   },
 
   {
-    img: "/Images/PESONA KING ADHAM 2.jpg",
+    image: "/Images/PESONA KING ADHAM 2.jpg",
     title: "Pesona King Adham",
     desc: "Jl.Chairil Anwar, THR-Puwatu",
     rating: 4,
@@ -108,7 +108,7 @@ export const productsData = [
 
 export const productTerlaris = [
   {
-    img: "/Images/BUMI ANAWAI LAND.jpg",
+    image: "/Images/BUMI ANAWAI LAND.jpg",
     title: "Bumi Anawai Land",
     desc: "Jl.Anawai, Kel. Wua-Wua",
     rating: 4,
@@ -121,7 +121,7 @@ export const productTerlaris = [
     linkDetail: "/BumiAnawaiLand",
   },
   {
-    img: "/Images/GRIYA CITRA ANAWAI.jpg",
+    image: "/Images/GRIYA CITRA ANAWAI.jpg",
     title: "Griya Citra Anawai",
     desc: "Jl.Anawai, Kel. Wua-Wua",
     rating: 4,
@@ -134,7 +134,7 @@ export const productTerlaris = [
     linkDetail: "/GriyaCitraAnawai",
   },
   {
-    img: "/Images/MUTIARA ATHIRA BARUGA 3.jpg",
+    image: "/Images/MUTIARA ATHIRA BARUGA 3.jpg",
     title: "Mutiara Athirah Baruga 3",
     desc: "Jl.Kapten Piere Tendean, Baruga",
     rating: 4,
@@ -148,7 +148,7 @@ export const productTerlaris = [
   },
 
   {
-    img: "/Images/PESONA KING ADHAM 2.jpg",
+    image: "/Images/PESONA KING ADHAM 2.jpg",
     title: "Pesona King Adham",
     desc: "Jl.Chairil Anwar, THR-Puwatu",
     rating: 4,
@@ -162,7 +162,7 @@ export const productTerlaris = [
   },
 
   {
-    img: "/Images/GRIYA IB HASANAH.jpg",
+    image: "/Images/GRIYA IB HASANAH.jpg",
     title: "Griya IB Hasanah",
     desc: "Jl.Chairil Anwar, THR-Puwatu",
     rating: 4,
@@ -176,7 +176,7 @@ export const productTerlaris = [
   },
 
   {
-    img: "/Images/MUTIARA ATHIRA BARUGA 2.jpg",
+    image: "/Images/MUTIARA ATHIRA BARUGA 2.jpg",
     title: "Mutiara Athirah Baruga 2",
     desc: "Jl.KS Tubun, Baruga",
     rating: 4,

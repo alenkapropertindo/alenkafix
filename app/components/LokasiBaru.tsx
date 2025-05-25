@@ -12,7 +12,7 @@ export default function LokasiBaru() {
           {productsData.map((item, index) => (
             <ProductCard
               key={index}
-              img={item.img}
+              img={item.image}
               title={item.title}
               desc={item.desc}
               rating={item.rating}

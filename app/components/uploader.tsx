@@ -156,20 +156,42 @@ export default function Uploader() {
             <input
               className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
               type="text"
-              name="names"
+              name="name"
               placeholder="Nama Perumahan"
             />
+            <>
             <select
               id="type"
               name="type"
               className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
             >
-              <option value="">-- Pilih Tipe --</option>
+              <option value="" disabled>-- Pilih Tipe --</option>
               <option value="SUBSIDI">SUBSIDI</option>
               <option value="KOMERSIL">KOMERSIL</option>
               <option value="KOST">KOST</option>
               <option value="SEWA">SEWA</option>
             </select>
+            </>
+            <>
+            <select
+              id="district"
+              name="district"
+              className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
+            >
+              <option value="" disabled>-- Pilih Kecamatan --</option>
+              <option value="Abeli">Abeli</option>
+              <option value="Baruga">Baruga</option>
+              <option value="Kadia">Kadia</option>
+              <option value="Kambu">Kambu</option>
+              <option value="Kendari">Kendari</option>
+              <option value="Kendari Barat">Kendari Barat</option>
+              <option value="Mandonga">Mandonga</option>
+              <option value="Nambo">Nambo</option>
+              <option value="Poasia">Poasia</option>
+              <option value="Puuwatu">Puuwatu</option>
+              <option value="Wua-Wua">Wua-Wua</option>
+            </select>
+            </>
             <input
               className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
               type="text"
@@ -182,6 +204,7 @@ export default function Uploader() {
               type="number"
               name="rating"
               placeholder="Rating"
+              defaultValue={4}
               required
             />
             <input
@@ -191,18 +214,19 @@ export default function Uploader() {
               placeholder="DP+Akad"
               required
             />
-            <input
-              className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
-              type="number"
-              name="fee"
-              placeholder="Fee"
-              required
-            />
+            
             <input
               className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
               type="number"
               name="discountFrom"
               placeholder="Harga Coret"
+              required
+            />
+            <input
+              className="w-full border rounded-md p-2 focus:ring focus:ring-gray-300"
+              type="number"
+              name="fee"
+              placeholder="Fee"
               required
             />
             <input
