@@ -85,6 +85,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   const [selectedType, setSelectedType] = useState("Rumah");
@@ -109,16 +110,19 @@ export default function Hero() {
             </h2>
             <p className="text-gray-600 text-base md:text-lg text-center">
               DP Mulai 1Jt-an{" "}
-              <button className="bg-[#00c194] text-sm md:text-base hover:bg-[#00a37d] py-2 px-4 rounded-md text-white transition-colors duration-200">
+              <Link
+                href={"https://wa.me/6285242049550"}
+                className="bg-[#00c194] text-sm md:text-base hover:bg-[#00a37d] py-2 px-4 rounded-md text-white transition-colors duration-200"
+              >
                 Hubungi Admin
-              </button>
+              </Link>
             </p>
           </div>
 
           {/* pencarian */}
           <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-2xl w-full max-w-4xl p-4 mx-4 text-xs">
             <form className="flex flex-col md:flex-row gap-3">
-              <div className="flex gap-2 md:w-36">
+              {/* <div className="flex gap-2 md:w-36">
                 <button
                   type="button"
                   onClick={() => setSelectedType("Rumah")}
@@ -141,7 +145,7 @@ export default function Hero() {
                 >
                   Kost
                 </button>
-              </div>
+              </div> */}
 
               <div className="relative flex-1">
                 <input
