@@ -1,21 +1,4 @@
 
-// import { NextResponse } from "next/server";
-// import { prisma } from "@/utils/prisma";
-// export async function GET(request: Request) {
-//   try {
-//     const products = await prisma.product.findMany({
-//       orderBy: { createdAt: "desc" }, 
-//     });
-//     return NextResponse.json({ success: true, data: products });
-//   } catch (err) {
-//     const msg = err instanceof Error ? err.message:"error"
-//     return NextResponse.json(
-//       { success: false, message: msg },
-//       { status: 500 }
-//     );
-//   }
-// }
-
 import { NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { Status_ } from "@prisma/client";

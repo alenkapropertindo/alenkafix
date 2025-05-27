@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
-import ProgressBar from "./progress-bar";
 
 export default function Uploader() {
   const [preview, setPreview] = useState<string | null>(null);

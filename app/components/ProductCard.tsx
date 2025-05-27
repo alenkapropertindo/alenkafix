@@ -12,14 +12,13 @@ const ProductCard: React.FC<propsType> = ({
   title,
   rating,
   price,
-  linkAdmin,
   linkFacebook,
   linkTiktok,
   hargaCoret,
 }) => {
   const [isLoved, setIsLoved] = useState(false);
-  let discount = Number(hargaCoret) - Number(price)
-  discount = (discount/Number(hargaCoret))*100
+  let discount = Number(hargaCoret) - Number(price);
+  discount = (discount / Number(hargaCoret)) * 100;
 
   const generateRating = (rating: number) => {
     switch (rating) {
@@ -92,7 +91,9 @@ const ProductCard: React.FC<propsType> = ({
 
       <div className="p-4 space-y-3">
         <div className="flex justify-between items-center">
-          <span className="bg-red-500 text-white px-2 py-1 rounded text-xs">Upto {Math.ceil(discount) ?? "70 "}% Off</span>
+          <span className="bg-red-500 text-white px-2 py-1 rounded text-xs">
+            Upto {Math.ceil(discount) ?? "70 "}% Off
+          </span>
           <button onClick={() => setIsLoved(!isLoved)} className="text-xl">
             {isLoved ? (
               <FaHeart className="text-red-500" />
@@ -110,19 +111,33 @@ const ProductCard: React.FC<propsType> = ({
         </div>
 
         <div className="flex w-full gap-3">
-          <Link
+          <a
             href={linkTiktok}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-1 text-slate-700 border border-slate-300 hover:bg-slate-100 px-3 py-2 rounded-lg transition-colors"
           >
             <FaTiktok />
             <span className="text-xs">Tiktok</span>
-          </Link>
-          <Link
+          </a>
+
+          <a
             href={linkFacebook}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-1 text-slate-700 border border-slate-300 hover:bg-slate-100 px-3 py-2 rounded-lg transition-colors"
           >
             <FaFacebook />
             <span className="text-xs">Facebook</span>
+          </a>
+        </div>
+        <div className="flex w-full gap-3">
+          <Link
+            href={`detail/${title}`}
+            className="w-full flex items-center justify-center gap-1 text-slate-700 border border-slate-300 hover:bg-slate-100 px-3 py-2 rounded-lg transition-colors"
+          >
+            {/* <FaFacebook /> */}
+            <span className="text-xs">Lihat Detail</span>
           </Link>
         </div>
 
@@ -137,13 +152,24 @@ const ProductCard: React.FC<propsType> = ({
             <span className="font-bold text-lg">
               Rp. {Number(price).toLocaleString("id-ID")}
             </span>
-            <Link
-              href={linkAdmin}
+            <a
+              href={`https://wa.me/6285242049550?text=${encodeURIComponent(
+                `Halo, Saya minat perumahan ${title}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#00c194] hover:bg-[#00a87f] text-white flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
             >
               <TiMessageTyping className="text-lg" />
               <span className="text-sm">Hubungi Admin</span>
-            </Link>
+            </a>
+            {/* <Link
+              href={`https://wa.me/6285242049550?text=Halo, Saya minat perumahan ${title}`}
+              className="bg-[#00c194] hover:bg-[#00a87f] text-white flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
+            >
+              <TiMessageTyping className="text-lg" />
+              <span className="text-sm">Hubungi Admin</span>
+            </Link> */}
           </div>
         </div>
       </div>

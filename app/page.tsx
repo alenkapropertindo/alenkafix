@@ -1,6 +1,6 @@
 "use client";
 import Hero from "@/app/components/Hero";
-import { CategorySection } from "@/app/components/LokasiBaru";
+import { CategorySection } from "@/app/components/CategorySection";
 import Testimoni from "@/app/components/Testimoni";
 import Navbar from "./components/Navbar";
 import useSWR from "swr";

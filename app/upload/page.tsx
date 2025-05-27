@@ -44,7 +44,7 @@
 // }
 
 import Uploader from "../components/uploader";
-import { Toaster } from "../components/toaster";
+import { Toaster } from "../components/ui/toaster";
 
 export default function Home() {
   return (

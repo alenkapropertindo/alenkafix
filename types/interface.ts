@@ -5,9 +5,7 @@ export interface propsType {
   rating: number;
   linkTiktok: string;
   linkFacebook: string;
-  linkAdmin: string;
   discountLabel?: string;
   desc?: string;
-  linkDetail?: string;
   hargaCoret?: number;
 }

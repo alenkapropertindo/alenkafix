@@ -43,8 +43,6 @@ export async function POST(request: Request) {
   image: url,
   status: "OPEN",
 });
-// console.log(formData.get("district"))
-// console.log(parsed)
 
     await prisma.product.create({ data: parsed });
 
