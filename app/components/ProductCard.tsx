@@ -2,10 +2,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaTiktok, FaFacebook, FaRegHeart, FaHeart } from "react-icons/fa";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { TiMessageTyping } from "react-icons/ti";
 import Link from "next/link";
 import { propsType } from "@/types/interface";
+import { generateRating } from "./ui/rating";
 
 const ProductCard: React.FC<propsType> = ({
   img,
@@ -20,63 +20,6 @@ const ProductCard: React.FC<propsType> = ({
   let discount = Number(hargaCoret) - Number(price);
   discount = (discount / Number(hargaCoret)) * 100;
 
-  const generateRating = (rating: number) => {
-    switch (rating) {
-      case 1:
-        return (
-          <div className="flex gap-1 text-[20px] text-[#FF9529]">
-            <AiFillStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 2:
-        return (
-          <div className="flex gap-1 text-[20px] text-[#FF9529]">
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 3:
-        return (
-          <div className="flex gap-1 text-[20px] text-[#FF9529]">
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 4:
-        return (
-          <div className="flex gap-1 text-[20px] text-[#FF9529]">
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 5:
-        return (
-          <div className="flex gap-1 text-[20px] text-[#FF9529]">
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-          </div>
-        );
-
-      default:
-        return null;
-    }
-  };
   return (
     <div className="border border-gray-200 rounded-xl max-w-[800px]">
       <div className="relative">
