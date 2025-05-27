@@ -106,13 +106,6 @@ const ProductCard: React.FC<propsType> = ({
               <TiMessageTyping className="text-lg" />
               <span className="text-sm">Hubungi Admin</span>
             </a>
-            {/* <Link
-              href={`https://wa.me/6285242049550?text=Halo, Saya minat perumahan ${title}`}
-              className="bg-[#00c194] hover:bg-[#00a87f] text-white flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
-            >
-              <TiMessageTyping className="text-lg" />
-              <span className="text-sm">Hubungi Admin</span>
-            </Link> */}
           </div>
         </div>
       </div>
