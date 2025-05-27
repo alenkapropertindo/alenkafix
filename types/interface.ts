@@ -1,7 +1,7 @@
 export interface propsType {
   img: string;
   title: string;
-  price: string;
+  price: number;
   rating: number;
   linkTiktok: string;
   linkFacebook: string;
@@ -9,5 +9,5 @@ export interface propsType {
   discountLabel?: string;
   desc?: string;
   linkDetail?: string;
-  hargaCoret?: string;
+  hargaCoret?: number;
 }
