@@ -43,8 +43,8 @@
 //   );
 // }
 
-import Uploader from "../components/uploader";
-import { Toaster } from "../components/ui/toaster";
+import Uploader from "../../components/uploader";
+import { Toaster } from "../../components/ui/toaster";
 
 export default function Home() {
   return (

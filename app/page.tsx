@@ -1,8 +1,8 @@
 "use client";
-import Hero from "@/app/components/Hero";
-import { CategorySection } from "@/app/components/CategorySection";
-import Testimoni from "@/app/components/Testimoni";
-import Navbar from "./components/Navbar";
+import Hero from "@/components/Hero";
+import { CategorySection } from "@/components/CategorySection";
+import Testimoni from "@/components/Testimoni";
+import Navbar from "../components/Navbar";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import { ApiResponse } from "@/types/products";

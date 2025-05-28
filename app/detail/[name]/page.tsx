@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { FaBed, FaBath, FaBolt, FaWater, FaMapMarkerAlt } from "react-icons/fa";
 import { TiFlowChildren } from "react-icons/ti";
 import { RiHomeGearFill } from "react-icons/ri";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/components/Navbar";
 
 const ProductDetail = () => {
   const [activeImage, setActiveImage] = useState(0);
