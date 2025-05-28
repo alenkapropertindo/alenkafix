@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from "./ui/product-card";
 import { Product } from "@/types/products";
 
 

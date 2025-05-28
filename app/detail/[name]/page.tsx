@@ -27,10 +27,9 @@ const ProductDetail = () => {
         <Navbar />
     <div className="container mx-auto px-4 pt-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Card Informasi Kiri */}
         <div className="lg:col-span-3">
           <div className="border rounded-xl p-6 shadow-lg sticky top-24">
-            <h1 className="text-2xl font-bold text-gray-800 mb-2">Villa Serenity</h1>
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">BUMI ANAWAI LAND</h1>
             <p className="text-gray-600 text-sm mb-4">PT. Bangun Sejahtera Abadi</p>
             <hr className="my-4" />
             
@@ -38,30 +37,34 @@ const ProductDetail = () => {
               <div>
                 <p className="text-gray-500 text-sm">Harga Rumah</p>
                 <p className="text-xl font-bold text-emerald-600">
-                  Rp 850.000.000
+                  Rp 170.000.000
                 </p>
               </div>
               
               <div>
                 <p className="text-gray-500 text-sm">Cicilan Mulai Dari</p>
                 <p className="text-lg font-semibold text-gray-800">
-                  Rp 4.2 jt/bulan
+                  Rp 1.1 jt/bulan
+                </p>
+              </div>
+              <div>
+                <p className="text-gray-500 text-sm">Jenis Suku Bunga</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  Flat
                 </p>
               </div>
               
               <div className="bg-amber-50 p-3 rounded-lg">
                 <p className="text-xs text-amber-700">
                   Suku Bunga Khusus 5%*<br/>
-                  <span className="text-[10px]">(*Syarat & Ketentuan berlaku)</span>
+                  <span className="text-[10px]">Hanya berlaku pad KPR Subsidi</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Konten Utama Tengah */}
         <div className="lg:col-span-6">
-          {/* Gambar Utama */}
           <div className="relative h-[600px] rounded-xl overflow-hidden mb-6">
             <Image
               src={images[activeImage]}
@@ -72,7 +75,6 @@ const ProductDetail = () => {
             />
           </div>
 
-          {/* Fitur Properti */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
             {features.map((feature, index) => (
               <div
@@ -88,7 +90,6 @@ const ProductDetail = () => {
             ))}
           </div>
 
-          {/* Deskripsi */}
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-4">Deskripsi Properti</h2>
             <p className="text-gray-600 text-sm leading-relaxed">
@@ -98,7 +99,6 @@ const ProductDetail = () => {
               dan material berkualitas premium.
             </p>
           </div>
-            {/* Surrounding Area */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Daerah Sekitar Perumahan</h2>
         <ul className="list-disc list-inside text-gray-600 space-y-2">
@@ -109,7 +109,6 @@ const ProductDetail = () => {
         </ul>
       </div>
 
-          {/* Map Section */}
           <div className="mb-8">
             <h2 className="text-xl font-bold mb-4">Lokasi Strategis</h2>
             <div className="rounded-xl overflow-hidden border">
@@ -125,7 +124,6 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        {/* Container Thumbnail Kanan */}
         <div className="lg:col-span-3">
           <div className="space-y-4">
             {images.map((img, index) => (
@@ -148,7 +146,6 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      {/* Floating Contact Button */}
       <div className="fixed bottom-6 right-6">
         <a
           href="https://wa.me/6285242049550"

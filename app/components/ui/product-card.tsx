@@ -5,7 +5,7 @@ import { FaTiktok, FaFacebook, FaRegHeart, FaHeart } from "react-icons/fa";
 import { TiMessageTyping } from "react-icons/ti";
 import Link from "next/link";
 import { propsType } from "@/types/interface";
-import { generateRating } from "./ui/rating";
+import { generateRating } from "./rating";
 
 const ProductCard: React.FC<propsType> = ({
   img,
