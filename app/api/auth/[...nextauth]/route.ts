@@ -1,42 +1,44 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
-import GoogleProvider from 'next-auth/providers/google'
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { prisma } from "../../../../lib/prisma"
+import GoogleProvider from "next-auth/providers/google";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { prisma } from "@/lib/prisma";
 
-export const authOptions: NextAuthOptions = {
-    providers: [
-        GoogleProvider({
-            clientId: process.env.AUTH_GOOGLE_ID as string,
-            clientSecret: process.env.AUTH_GOOGLE_SECRET as string
-        })
-    ],
-    secret: process.env.AUTH_SECRET,
-    session: {
-        strategy: "database",
-        maxAge: 30 * 24 * 60 * 60
+const authOptions: NextAuthOptions = {
+  providers: [
+    GoogleProvider({
+      clientId: process.env.AUTH_GOOGLE_ID as string,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET as string,
+    }),
+  ],
+  secret: process.env.AUTH_SECRET,
+  session: {
+    strategy: "database",
+    maxAge: 30 * 24 * 60 * 60, // 30 hari
+  },
+  adapter: PrismaAdapter(prisma),
+  callbacks: {
+    async session({ session, user }) {
+      if (session.user && user.id) {
+        session.user.id = user.id;
+        session.user.name = user.name;
+        session.user.email = user.email;
+        session.user.role = user.role ?? "WAITING";
+      }
+      return session;
     },
-    adapter: PrismaAdapter(prisma),
-    callbacks: {
-        async jwt({ token, user }) {
-            if (user) {
-                token.id = user.id
-                token.role = user.role
-            } else if (token.sub) {
-                const freshUser = await prisma.user.findUnique({
-                    where: { id: token.sub as string },
-                    select: { role: true },
-                });
-                token.role = freshUser?.role;
-            }
-            return token
-        },
-        async session({ session, token }) {
-            if (session.user && token.sub) {
-                session.user.id = token.sub as string
-                session.user.role = token.role as string
-            }
-            return session;
-        }
-    }
-}
-export default NextAuth(authOptions)
+    async signIn({ user }) {
+      // Ambil role dari `user.role` (alias Prisma)
+      const role = user.role;
+      if (role === "ADMIN") {
+        return "/admin/dashboard";
+      }
+      // Jika role lain (misalnya "member"), pakai route sesuai nama role:
+      return "/";
+    },
+  }
+
+};
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

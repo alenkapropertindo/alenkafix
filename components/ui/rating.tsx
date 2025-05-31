@@ -5,10 +5,7 @@ export function generateRating(rating: number) {
     <div className="flex gap-1 text-[20px] text-[#FF9529]">
       {Array(5)
         .fill(0)
-        .map((_, i) => (
-          i<rating?
-          <AiFillStar />:<AiOutlineStar />
-        ))}
+        .map((_, i) => (i < rating ? <AiFillStar key={i}/> : <AiOutlineStar key={i}/>))}
     </div>
   );
 }
