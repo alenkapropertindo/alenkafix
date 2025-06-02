@@ -7,7 +7,7 @@ import { Session } from "next-auth";
 export interface NavbarRoutesProps{
   session:Session | null
 }
-export const NavbarRoutes = ({session}:NavbarRoutesProps) => {
+export const NavbarRoutes = () => {
   const pathname = usePathname();
 
   const isFreelancePage = pathname?.startsWith("/freelance");
@@ -16,7 +16,7 @@ export const NavbarRoutes = ({session}:NavbarRoutesProps) => {
   return (
     <>
       <div className="flex gap-x-2 ml-auto">
-        {isFreelancePage ? <UserDropdown session={session}/> : null}
+        {/* {isFreelancePage ? <UserDropdown/> : null} */}
       </div>
     </>
   );

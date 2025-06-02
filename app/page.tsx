@@ -6,12 +6,8 @@ import Navbar from "../components/Navbar";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import { ApiResponse } from "@/types/products";
-import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const {data:session, status} = useSession();
-  console.log(session)
-  console.log(status)
   const { data, error, isLoading } = useSWR<ApiResponse>(
     "/api/get-products",
     fetcher

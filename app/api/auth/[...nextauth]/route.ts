@@ -26,15 +26,15 @@ const authOptions: NextAuthOptions = {
       }
       return session;
     },
-    async signIn({ user }) {
-      // Ambil role dari `user.role` (alias Prisma)
-      const role = user.role;
-      if (role === "ADMIN") {
-        return "/admin/dashboard";
-      }
-      // Jika role lain (misalnya "member"), pakai route sesuai nama role:
-      return "/";
-    },
+    // async signIn({ user }) {
+    //   // Ambil role dari `user.role` (alias Prisma)
+    //   const role = user.role;
+    //   if (role === "ADMIN") {
+    //     return "/admin/dashboard";
+    //   }
+    //   // Jika role lain (misalnya "member"), pakai route sesuai nama role:
+    //   return "/";
+    // },
   }
 
 };

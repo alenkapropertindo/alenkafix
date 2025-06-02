@@ -182,7 +182,7 @@ const MobileNavLink: React.FC<MobileNavLinkProps> = ({
 const LoginButton: React.FC<ButtonProps> = ({ fullWidth, session }) => (
   <button
     onClick={() =>
-      signIn("google")
+      signIn("google",{callbackUrl:"/"})
     }
     className={`
       flex items-center justify-center 

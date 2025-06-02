@@ -1,6 +1,7 @@
 // [role]/layout.tsx
 "use client"
-import { Navbar } from "@/components/navbar2";
+import Navbar from "@/components/Navbar";
+// import Navbar from "../components/Navbar";
 import { Sidebar } from "@/components/sidebar";
 import { useSession } from "next-auth/react";
 
@@ -11,7 +12,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full">
       <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50">
-        <Navbar session={session}/>
+        <Navbar />
       </div>
       <div className="hidden md:flex h-full w-56 flex-col fixed inset-y-0 z-50">
         <Sidebar />
