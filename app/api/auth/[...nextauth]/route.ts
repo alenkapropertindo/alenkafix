@@ -17,24 +17,30 @@ const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(prisma),
   callbacks: {
+     async signIn({ user }) {
+      // Ambil role dari `user.role` (alias Prisma)
+      const role = user.role;
+      console.log(role)
+      if (role === "ADMIN") {
+        return "/admin/dashboard";
+      }
+      // Jika role lain (misalnya "member"), pakai route sesuai nama role:
+      return "/";
+    },
     async session({ session, user }) {
       if (session.user && user.id) {
         session.user.id = user.id;
         session.user.name = user.name;
         session.user.email = user.email;
-        session.user.role = user.role ?? "WAITING";
+        session.user.role = user.role ;
       }
+      console.log(session)
       return session;
     },
-    // async signIn({ user }) {
-    //   // Ambil role dari `user.role` (alias Prisma)
-    //   const role = user.role;
-    //   if (role === "ADMIN") {
-    //     return "/admin/dashboard";
-    //   }
-    //   // Jika role lain (misalnya "member"), pakai route sesuai nama role:
-    //   return "/";
-    // },
+    // async redirect({url,baseUrl}){
+    //   return ""
+    // }
+   
   }
 
 };
