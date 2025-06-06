@@ -13,25 +13,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 enum AccountRole {
   FREELANCE
   ADMIN
-  
 }
+
 enum Type {
   SUBSIDI
   KOMERSIL
   KOST
   SEWA
 }
+
 enum Status {
   FOLLOWUP
   ONPROCESS
   SUCCESS
   CANCEL
 }
-  
+
 enum Status_ {
   OPEN
   TERLARIS
@@ -63,34 +63,34 @@ enum Status_ {
 //   @@unique([provider, providerAccountId])
 // }
 model User {
-  id            String    @id @default(uuid())
-  name          String?   
-  email         String?   @unique
-  emailVerified DateTime? 
-  whatsup       String?   @unique
-  payout        Int @default(0)
+  id            String      @id @default(uuid())
+  name          String?
+  email         String?     @unique
+  emailVerified DateTime?
+  whatsup       String?     @unique
+  payout        Int         @default(0)
   password      String?
   role          AccountRole @default(FREELANCE)
   image         String?
-  customers     Customer[]   
-  accounts      Account[] 
-  sessions      Session[] 
+  customers     Customer[]
+  accounts      Account[]
+  sessions      Session[]
 }
 
 model Account {
-  id                 String   @id @default(cuid())
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  
-  access_token       String?  
-  expires_at         Int?     
-  token_type         String?  
-  scope              String?  
-  id_token           String?  
-  session_state      String?  
-  userId             String
-  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(cuid())
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  userId            String
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -112,39 +112,48 @@ model VerificationToken {
 }
 
 model Customer {
-  id          String @id @default(uuid())
-  userId      String
-  name        String
-  whatsup     String @unique
-  email       String
-  status      Status @default(FOLLOWUP)
+  id        String   @id @default(uuid())
+  userId    String
+  name      String
+  whatsup   String   @unique
+  email     String
+  status    Status   @default(FOLLOWUP)
   // produk      Produk[]
-  createdAt   DateTime @default(now())
-  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
-  @@index([userId])
-  
-  products      Product[]  @relation("CustomerToProduct")
-}
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  products Product[] @relation("CustomerToProduct")
+
+  @@index([userId])
+}
 
 model Product {
-  id          String @id @default(uuid())
-  type  Type @default(SUBSIDI)
-  status  Status_ @default(OPEN)
-  district        String  @default("Poasia")
-  name        String @unique
-  rating Decimal
-  address        String 
-  price     Decimal 
-  discountFrom     Decimal 
-  fee     Decimal 
-  image String
-  fb     String 
-  tiktok String
-  createdAt   DateTime @default(now())
-   customers   Customer[] @relation("CustomerToProduct")
+  id           String     @id @default(uuid())
+  type         Type       @default(SUBSIDI)
+  status       Status_    @default(OPEN)
+  district     String     @default("Poasia")
+  name         String     @unique
+  rating       Decimal
+  address      String
+  price        Decimal
+  discountFrom Decimal
+  fee          Decimal
+  image        String
+  fb           String
+  tiktok       String
+  company      String
+  bedroom      Int        @default(2)
+  bathroom     Int        @default(1)
+  layout       String     @default("Zigzag")
+  electricity  Int        @default(1300)
+  waterType    String     @default("Sumur Bor")
+  waterSystem  String     @default("Menara Air")
+  description  String
+  surrounding  String
+  coordinates  String
+  createdAt    DateTime   @default(now())
+  customers    Customer[] @relation("CustomerToProduct")
 }
-
 
 // model PasswordResetToken {
 //   id String @id @default(cuid())
@@ -154,4 +163,3 @@ model Product {
 
 //   @@unique([email, token])
 // }
-

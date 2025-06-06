@@ -76,7 +76,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/rumah">Rumah</NavLink>
-            <NavLink href="/kost">Kost</NavLink>
+            {/* <NavLink href="/kost">Kost</NavLink> */}
             <NavLink href="/tentang">Tentang</NavLink>
             <NavLink href="/kontak">Kontak</NavLink>
             <NavLink href="/referal">Referal</NavLink>
@@ -115,9 +115,9 @@ export default function Navbar() {
                 <MobileNavLink href="/rumah" onClick={() => setIsMenuOpen(false)}>
                   Rumah
                 </MobileNavLink>
-                <MobileNavLink href="/kost" onClick={() => setIsMenuOpen(false)}>
+                {/* <MobileNavLink href="/kost" onClick={() => setIsMenuOpen(false)}>
                   Kost
-                </MobileNavLink>
+                </MobileNavLink> */}
                 <MobileNavLink href="/tentang" onClick={() => setIsMenuOpen(false)}>
                   Tentang
                 </MobileNavLink>
