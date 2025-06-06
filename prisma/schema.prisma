@@ -15,7 +15,6 @@ datasource db {
 
 
 enum AccountRole {
-  WAITING
   FREELANCE
   ADMIN
   
@@ -71,7 +70,7 @@ model User {
   whatsup       String?   @unique
   payout        Int @default(0)
   password      String?
-  role          AccountRole @default(WAITING)
+  role          AccountRole @default(FREELANCE)
   image         String?
   customers     Customer[]   
   accounts      Account[] 
