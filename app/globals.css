@@ -4,7 +4,22 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
+@keyframes progress {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
 
+.animate-progress {
+  animation: progress 2s ease-in-out infinite;
+}
+@keyframes smooth-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-smooth-spin {
+  animation: smooth-spin 1.5s linear infinite;
+}
 
 @custom-variant dark (&:is(.dark *));
 

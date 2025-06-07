@@ -2,6 +2,8 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
+import { v4 as uuidv4 } from 'uuid';
+import { encode } from 'next-auth/jwt';
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -26,7 +28,14 @@ const authOptions: NextAuthOptions = {
       }
       return session;
     },
-   
+   async redirect({ url, baseUrl }) {
+    const stateToken = uuidv4();
+    if (typeof window !== 'undefined') {
+        sessionStorage.setItem('redirect_state', stateToken);
+      }
+      // Redirect ke halaman khusus role setelah login
+      return `${baseUrl}/redirecting/${stateToken}`;
+    }
   }
 
 };
