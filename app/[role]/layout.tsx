@@ -1,22 +1,28 @@
-// [role]/layout.tsx
-"use client"
-// import Navbar from "@/components/Navbar";
-// import Navbar from "../components/Navbar";
-import { Sidebar } from "@/components/sidebar";
+"use client";
+import { useState } from "react";
 import Navbar from "./navbar";
+import Sidebar from "./sidebar";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-    
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
   return (
-    <div className="h-full">
-      <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50">
-        <Navbar />
+    <div className="h-full flex flex-col">
+      <Navbar 
+        onMenuToggle={() => setSidebarOpen(!sidebarOpen)} 
+        sidebarOpen={sidebarOpen}
+      />
+      
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar 
+          isOpen={sidebarOpen} 
+          onClose={() => setSidebarOpen(false)} 
+        />
+        
+        <main className="flex-1 overflow-y-auto pt-[60px] md:pt-0 md:ml-[200px] transition-all duration-300">
+          {children}
+        </main>
       </div>
-      <div className="hidden md:flex h-full w-56 flex-col fixed inset-y-0 z-50">
-        <Sidebar />
-      </div>
-      <main className="md:pl-56 pt-[80px] h-full">{children}</main>
     </div>
   );
 };
