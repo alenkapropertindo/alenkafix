@@ -25,7 +25,7 @@ export default function AuthErrorPage() {
         <h1 className="text-2xl font-bold text-red-600 mb-4">Authentication Error</h1>
         <p className="text-gray-700 mb-6">{errorMessage}</p>
         <Link 
-          href="/auth/signin" 
+          href="/" 
           className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition"
         >
           Return to Sign In

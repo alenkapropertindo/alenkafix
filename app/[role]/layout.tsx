@@ -1,13 +1,12 @@
 // [role]/layout.tsx
 "use client"
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 // import Navbar from "../components/Navbar";
 import { Sidebar } from "@/components/sidebar";
-import { useSession } from "next-auth/react";
+import Navbar from "./navbar";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-    const { data: session, status } = useSession();
-    console.log(status)
+    
   
   return (
     <div className="h-full">

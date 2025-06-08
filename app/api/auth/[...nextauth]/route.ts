@@ -3,8 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import { v4 as uuidv4 } from 'uuid';
-import { encode } from 'next-auth/jwt';
-
+import { cookies } from 'next/headers';
 const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
@@ -19,20 +18,25 @@ const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(prisma),
   callbacks: {
-       async session({ session, user }) {
+    async session({ session, user }) {
       if (user) {
         session.user.id = user.id;
         session.user.name = user.name;
         session.user.email = user.email;
-        session.user.role = user.role ;
+        session.user.role = user.role;
       }
       return session;
     },
-   async redirect({ url, baseUrl }) {
-    const stateToken = uuidv4();
-    if (typeof window !== 'undefined') {
-        sessionStorage.setItem('redirect_state', stateToken);
-      }
+    async redirect({ url, baseUrl }) {
+      const stateToken = uuidv4();
+      (await
+        cookies()).set('redirect_state', stateToken, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'lax',
+          maxAge: 60 * 1, 
+        });
+
       // Redirect ke halaman khusus role setelah login
       return `${baseUrl}/redirecting/${stateToken}`;
     }
