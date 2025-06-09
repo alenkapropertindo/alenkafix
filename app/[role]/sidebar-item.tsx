@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { IconType } from "react-icons/lib";
 
 interface SidebarItemProps {
-  icon: any;
+  icon: IconType;
   label: string;
   href: string;
   mobile?: boolean;

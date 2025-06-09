@@ -39,7 +39,7 @@ export default function ViewRedirect() {
         </div>
       </div>
       <p className="mt-8 text-gray-500 text-sm max-w-md text-center">
-        You're being redirected to your personalized dashboard based on your
+        You are being redirected to your personalized dashboard based on your
         account role. This should only take a moment.
       </p>
     </div>

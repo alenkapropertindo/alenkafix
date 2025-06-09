@@ -18,18 +18,18 @@ import { PrismaClient } from "@prisma/client";
 
 declare global {
   // Ini agar saat development hot‐reload, PrismaClient tidak terbuat ganda
-  // @ts-ignore
+  // eslint-disable-next-line
   var prisma: PrismaClient | undefined;
 }
 
 export const prisma: PrismaClient =
-  // @ts-ignore
+  // 
   global.prisma ??
-  // @ts-ignore
+  // 
   new PrismaClient();
 
 if (process.env.NODE_ENV !== "production") {
-  // @ts-ignore
+  // 
   global.prisma = prisma;
 }
 

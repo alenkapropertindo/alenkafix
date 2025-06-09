@@ -27,7 +27,7 @@ const authOptions: NextAuthOptions = {
       }
       return session;
     },
-    async redirect({ url, baseUrl }) {
+    async redirect({ baseUrl }) {
       const stateToken = uuidv4();
       (await
         cookies()).set('redirect_state', stateToken, {

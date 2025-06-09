@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
 
@@ -130,7 +131,7 @@ export default function Uploader() {
               <span className="sr-only">Photo upload</span>
             </div>
             {preview && (
-              <img
+              <Image
                 src={preview}
                 alt="Preview"
                 className="absolute inset-0 z-0 h-full w-full rounded-md object-cover"

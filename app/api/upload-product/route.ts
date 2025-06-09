@@ -22,6 +22,10 @@ const ProductSchema = z.object({
   fb: z.string(),
   tiktok: z.string(),
   image: z.string(),
+    description:  z.string(),
+  surrounding:  z.string(),
+  coordinates:  z.string(),
+  company:z.string(),
 });
 
 export async function POST(request: Request) {

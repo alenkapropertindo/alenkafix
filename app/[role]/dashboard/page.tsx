@@ -1,10 +1,9 @@
-"use client"
-import { useSession } from "next-auth/react";
-
-export default function Page() {
-    const { data: session, status } = useSession();
-    // console.log(status)
-    return (
-        <div></div>
-    );
+// app/dashboard/page.tsx
+export default function DashboardPage() {
+  return (
+    <div>
+      <h1 className="text-2xl font-bold">Dashboard</h1>
+      {/* Konten dashboard */}
+    </div>
+  )
 }
